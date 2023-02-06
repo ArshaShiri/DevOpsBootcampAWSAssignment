@@ -69,3 +69,10 @@ You want to use the AWS CLI for the following tasks. So, to be able to interact 
     Default output format [None]:
 
     # The changes can validated via cat ~/.aws/credentials.
+
+## EXERCISE 3: Create VPC
+You want to create the EC2 Instance in a dedicated VPC, instead of using the default one. So you:
+
+* create a new VPC with 1 subnet and
+* create a security group in the VPC that will allow you access on ssh port 22 and will allow browser access to your Node application
+(using the AWS CLI)

@@ -57,3 +57,15 @@ You want to use the AWS CLI for the following tasks. So, to be able to interact 
 
 * Set credentials for that user for AWS CLI
 * Configure correct region for your AWS CLI
+
+**Solution:**
+
+    # After saving the current admin user keys from ~/.aws/credentials in a safe location,
+    # the credentials of the new use can be set from the key.txt file that was created in the previous step.
+    aws configure
+    AWS Access Key ID [****]: new-access-key-id
+    AWS Secret Access Key [****]: new-secret-access-key
+    Default region name [us-west-1]: new-region
+    Default output format [None]:
+
+    # The changes can validated via cat ~/.aws/credentials.

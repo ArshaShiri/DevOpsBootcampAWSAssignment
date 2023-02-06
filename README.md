@@ -76,3 +76,49 @@ You want to create the EC2 Instance in a dedicated VPC, instead of using the def
 * create a new VPC with 1 subnet and
 * create a security group in the VPC that will allow you access on ssh port 22 and will allow browser access to your Node application
 (using the AWS CLI)
+
+**Solution:**
+
+    # Create VPC and return VPC id
+    aws ec2 create-vpc --cidr-block 10.0.0.0/16 --query Vpc.VpcId --output text
+
+    # Create subnet in the VPC
+    # aws ec2 create-subnet --vpc-id vpc-0c19469408af3eaf4 --cidr-block 10.0.1.0/24
+    aws ec2 create-subnet --vpc-id {vpc-id} --cidr-block 10.0.1.0/24 
+
+We can make the VPC public:
+
+    # Create internet gateway & return the gateway id
+    aws ec2 create-internet-gateway --query InternetGateway.InternetGatewayId --output text
+
+    # Attach internet gateway to our VPC
+    # aws ec2 attach-internet-gateway --vpc-id vpc-0c19469408af3eaf4 --internet-gateway-id igw-033d0ae221c8140d8
+    aws ec2 attach-internet-gateway --vpc-id {vpc-id} --internet-gateway-id {igw-id}
+
+    # Create a custom Route table for our VPC & return route table ID
+    # aws ec2 create-route-table --vpc-id vpc-0c19469408af3eaf4 --query RouteTable.RouteTableId --output text
+    aws ec2 create-route-table --vpc-id {vpc-id} --query RouteTable.RouteTableId --output text
+
+    # Create Route rule for handling all traffic between internet & VPC
+    # aws ec2 create-route --route-table-id rtb-08b2279d5e370b451 --destination-cidr-block 0.0.0.0/0 --gateway-id igw-033d0ae221c8140d8
+    aws ec2 create-route --route-table-id {rtb-id} --destination-cidr-block 0.0.0.0/0 --gateway-id {igw-id}
+
+    # Validate your custom route table has correct configurations, 1 local and 1 internet gateway routes
+    # aws ec2 describe-route-tables --route-table-id rtb-08b2279d5e370b451
+    aws ec2 describe-route-tables --route-table-id {rtb-id}
+
+    # Associate subnet with the route table to allow internet traffic in the subnet as well
+    # aws ec2 associate-route-table  --subnet-id subnet-0c929232221315e15 --route-table-id rtb-08b2279d5e370b451
+    aws ec2 associate-route-table  --subnet-id {subnet-id} --route-table-id {rtb-id}
+
+Create security group in the VPC to allow access to port 22.
+
+    # Create security group - this will print security group id as output
+    # aws ec2 create-security-group --group-name SSHAccess --description "Security group for SSH access" --vpc-id vpc-0c19469408af3eaf4
+    aws ec2 create-security-group --group-name SSHAccess --description "Security group for SSH access" --vpc-id {vpc-id}
+
+    # Add incoming access on port 22 from all sources to security group
+    # aws ec2 authorize-security-group-ingress --group-id sg-004c36b1a2e0d2126 --protocol tcp --port 22 --cidr 0.0.0.0/0
+    aws ec2 authorize-security-group-ingress --group-id {sg-id} --protocol tcp --port 22 --cidr 0.0.0.0/0
+
+    # You can also specify your IP address CIDR block instead of 0.0.0.0/0 for more security

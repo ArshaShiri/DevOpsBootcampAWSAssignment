@@ -51,3 +51,9 @@ Finally, we can assign permissions to the "devops" group.
 
     # Check policies for group
     aws iam list-attached-group-policies --group-name devops
+
+## EXERCISE 2: Configure AWS CLI
+You want to use the AWS CLI for the following tasks. So, to be able to interact with the AWS account from the AWS Command Line tool you need to configure it correctly:
+
+* Set credentials for that user for AWS CLI
+* Configure correct region for your AWS CLI

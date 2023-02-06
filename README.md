@@ -1,17 +1,10 @@
 #### This project is for the Devops bootcamp exercise for
 
-#### "Cloud Basics"
+## EXERCISE 1: Create IAM user
+First of all, you need an IAM user with correct permissions to execute the tasks below.
 
-##### Test
-The project uses jest library for tests. (see "test" script in package.json)
-There is 1 test (server.test.js) in the project that checks whether the main index.html file exists in the project. 
+* Create a new IAM user "your name" with "devops" user-group
+* Give the "devops" group all needed permissions to execute the tasks below - with login and CLI credentials
 
-To run the nodejs test:
 
-    npm run test
-
-Make sure to download jest library before running test, otherwise jest command defined in package.json won't be found.
-
-    npm install
-
-In order to see failing test, remove index.html or rename it and run tests.
+Note: Do that using the AWS UI with Admin User

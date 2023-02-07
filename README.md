@@ -167,3 +167,7 @@ First:
 
 The reason is you want to have the whole configuration for starting the docker container in a file, in case you need to make changes to that, instead of a plain docker command with parameters. Also, in case you add a database later.
 
+**Solution:**
+
+Added the docker-compose.yaml file.
+

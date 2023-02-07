@@ -149,3 +149,14 @@ Once the EC2 instance is created successfully, you want to prepare the server to
 
 * ssh into the server and
 * install Docker on it to run the dockerized application later
+
+**Solution:**
+
+    # ssh into EC2 instance using the public IP address we got earlier
+    ssh -i "AssignmentKey.pem" ec2-user@18.185.254.138
+
+    # Install Docker, start docker service and allow ec2-user to run docker commands without sudo by adding it to docker group
+    sudo yum update -y && sudo yum install -y docker
+    sudo systemctl start docker 
+    sudo usermod -aG docker ec2-user
+

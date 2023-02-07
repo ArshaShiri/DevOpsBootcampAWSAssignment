@@ -129,3 +129,17 @@ Once the VPC is created, you:
 
 * Create an EC2 instance in that VPC
 * with the security group you just created and ssh key file (using the AWS CLI)
+
+**Solution:**
+
+    # Create key pair and save it locally in a pem file.
+    aws ec2 create-key-pair --key-name AssignmentKey --query "KeyMaterial" --output text > AssignmentKey.pem
+
+    # Set stricter permission on it for later use
+    chmod 400 AssignmentKey.pem
+
+    # Create 1 EC2 instance with the above key, in our subnet and using security group we created
+    aws ec2 run-instances --image-id ami-06c39ed6b42908a36 --count 1 --instance-type t2.micro --key-name AssignmentKey --security-group-ids sg-004c36b1a2e0d2126 --subnet-id subnet-0c929232221315e15
+
+    # Validate that EC2 instance is in a running state, and get its public ip address to connect via ssh
+    aws ec2 describe-instances --instance-id i-0a5cd2b3bbc072a4a --query "Reservations[*].Instances[*].{State:State.Name,Address:PublicIpAddress}"

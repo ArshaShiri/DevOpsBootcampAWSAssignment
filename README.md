@@ -143,3 +143,9 @@ Once the VPC is created, you:
 
     # Validate that EC2 instance is in a running state, and get its public ip address to connect via ssh
     aws ec2 describe-instances --instance-id i-0a5cd2b3bbc072a4a --query "Reservations[*].Instances[*].{State:State.Name,Address:PublicIpAddress}"
+
+## EXERCISE 5: SSH into the server and install Docker on it
+Once the EC2 instance is created successfully, you want to prepare the server to run Docker containers. So you:
+
+* ssh into the server and
+* install Docker on it to run the dockerized application later

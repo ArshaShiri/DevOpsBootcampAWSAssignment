@@ -122,3 +122,10 @@ Create security group in the VPC to allow access to port 22.
     aws ec2 authorize-security-group-ingress --group-id {sg-id} --protocol tcp --port 22 --cidr 0.0.0.0/0
 
     # You can also specify your IP address CIDR block instead of 0.0.0.0/0 for more security
+
+
+## EXERCISE 4: Create EC2 Instance
+Once the VPC is created, you:
+
+* Create an EC2 instance in that VPC
+* with the security group you just created and ssh key file (using the AWS CLI)

@@ -160,3 +160,10 @@ Once the EC2 instance is created successfully, you want to prepare the server to
     sudo systemctl start docker 
     sudo usermod -aG docker ec2-user
 
+## EXERCISE 6: Add docker-compose for deployment
+First:
+
+* add docker-compose to your NodeJS application
+
+The reason is you want to have the whole configuration for starting the docker container in a file, in case you need to make changes to that, instead of a plain docker command with parameters. Also, in case you add a database later.
+

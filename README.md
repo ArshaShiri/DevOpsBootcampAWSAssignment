@@ -174,3 +174,5 @@ Added the docker-compose.yaml file.
 
 ## EXERCISE 7: Add "deploy to EC2" step to your pipeline
 * Complete the previous pipeline by adding a deployment step for your previous NodeJS project with docker-compose.
+
+**Solution:**

@@ -177,4 +177,4 @@ Added the docker-compose.yaml file.
 
 **Solution:**
 
-The Jenkinsfile and dockerfile are added to the repository from the [DevOpsBootcampJenkinsAssignment](https://github.com/ArshaShiri/DevOpsBootcampJenkinsAssignment.git) branch and build on Jenkins is successful. Next, the new stage to deploy to EC2 is added.
+The Jenkinsfile and dockerfile are added to the repository from the [DevOpsBootcampJenkinsAssignment](https://github.com/ArshaShiri/DevOpsBootcampJenkinsAssignment.git) branch and build on Jenkins is successful. Next, the new stage to deploy to EC2 is added. Make sure a ssh credential is added to jenkins by the name of ec2-server-key.

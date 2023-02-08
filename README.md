@@ -176,3 +176,5 @@ Added the docker-compose.yaml file.
 * Complete the previous pipeline by adding a deployment step for your previous NodeJS project with docker-compose.
 
 **Solution:**
+
+The Jenkinsfile and dockerfile are added to the repository from the [DevOpsBootcampJenkinsAssignment](https://github.com/ArshaShiri/DevOpsBootcampJenkinsAssignment.git) branch and build on Jenkins is successful. Next, the new stage to deploy to EC2 is added.

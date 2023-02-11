@@ -178,3 +178,8 @@ Added the docker-compose.yaml file.
 **Solution:**
 
 The Jenkinsfile and dockerfile are added to the repository from the [DevOpsBootcampJenkinsAssignment](https://github.com/ArshaShiri/DevOpsBootcampJenkinsAssignment.git) branch and build on Jenkins is successful. Next, the new stage to deploy to EC2 is added. Make sure a ssh credential is added to jenkins by the name of ec2-server-key.
+
+## EXERCISE 8: Configure access from browser (EC2 Security Group)
+After executing the Jenkins pipeline successfully, the application is deployed, but you still can't access it from the browser. Again, you need to open the correct port on the server. For that you:
+
+* Configure EC2 security group to access your application from browser (using AWS CLI)

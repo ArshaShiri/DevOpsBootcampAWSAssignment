@@ -183,3 +183,11 @@ The Jenkinsfile and dockerfile are added to the repository from the [DevOpsBootc
 After executing the Jenkins pipeline successfully, the application is deployed, but you still can't access it from the browser. Again, you need to open the correct port on the server. For that you:
 
 * Configure EC2 security group to access your application from browser (using AWS CLI)
+
+**Solution:**
+
+To open the application's port we have to execute the following command:
+
+    # aws ec2 authorize-security-group-ingress --group-id sg-004c36b1a2e0d2126 --protocol tcp --port 3000 --cidr 0.0.0.0/0
+    aws ec2 authorize-security-group-ingress --group-id {sg-id} --protocol tcp --port 3000 --cidr 0.0.0.0/0
+

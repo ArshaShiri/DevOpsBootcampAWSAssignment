@@ -197,4 +197,8 @@ Your team members are creating branches to add new features to the application o
 * Add branch based logic to Jenkinsfile
 * Add webhook to trigger pipeline automatically
 
+**Solution:**
+
+Make a stage in Jenkinsfile for automatically committing the correct version of the software to git (setting up ssh etc.) The solution is similar to exercise 2 of [Jenkins Assignment](https://github.com/ArshaShiri/DevOpsBootcampJenkinsAssignment.git)
+
 

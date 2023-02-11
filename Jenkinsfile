@@ -52,12 +52,12 @@ pipeline {
         }
 
 
-        // stage('commit version update to github') {
-        //     steps {
-        //         script {
-        //             commitVersionChangeToGit()
-        //         }
-        //     }
-        // }
+        stage('commit version update to github') {
+            steps {
+                script {
+                    commitVersionChangeToGit()
+                }
+            }
+        }
     }
 }

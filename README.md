@@ -191,3 +191,10 @@ To open the application's port we have to execute the following command:
     # aws ec2 authorize-security-group-ingress --group-id sg-004c36b1a2e0d2126 --protocol tcp --port 3000 --cidr 0.0.0.0/0
     aws ec2 authorize-security-group-ingress --group-id {sg-id} --protocol tcp --port 3000 --cidr 0.0.0.0/0
 
+## EXERCISE 9: Configure automatic triggering of multi-branch pipeline
+Your team members are creating branches to add new features to the application or fix stuff, so you don't want to build and deploy all these half-done features or bug fixes. You want to build and deploy only the master branch. All other branches should only run tests. Add this logic to the Jenkinsfile.
+
+* Add branch based logic to Jenkinsfile
+* Add webhook to trigger pipeline automatically
+
+
